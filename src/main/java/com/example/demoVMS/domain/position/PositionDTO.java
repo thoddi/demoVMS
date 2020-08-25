@@ -17,17 +17,17 @@ public class PositionDTO implements Position {
 	/**
 	 * The position latitude in degrees. 
 	 */
-	private Number latitude;
+	private double latitude;
 	
 	/**
 	 * The position longitude in degrees.
 	 */
-	private Number longitude;
+	private double longitude;
 	
 	/**
 	 * The speed at that time in knots.
 	 */
-	private Number speed;
+	private double speed;
 
 
 	/**
@@ -48,45 +48,49 @@ public class PositionDTO implements Position {
 	
 	/**
 	 * Gets the latitude of the position.
-	 * @return The latitude.
+	 * @return The latitude in degrees.
 	 */
-	public Number getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
 	/**
 	 * Sets the latitude of the position.
-	 * @param latitude A new latitude.
+	 * @param latitude A new latitude in degrees.
 	 */
-	public void setLatitude(Number latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
 	/**
 	 * Gets the longitude of the position.
-	 * @return The longitude.
+	 * @return The longitude in degrees.
 	 */
-	public Number getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
 	/**
 	 * Sets the longitude of the position.
-	 * @param longitude A new longitude.
+	 * @param longitude A new longitude in degrees.
 	 */
-	public void setLongitude(Number longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
 	/**
 	 * Gets the speed at that time.
-	 * @return The speed.
+	 * @return The speed in knots.
 	 */
-	public Number getSpeed() {
+	public double getSpeed() {
 		return speed;
 	}
 
-	public void setSpeed(Number speed) {
+	/**
+	 * Sets the speed at the time of the position.
+	 * @param speed in knots.
+	 */
+	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
 	

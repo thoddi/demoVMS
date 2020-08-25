@@ -13,6 +13,21 @@ public class VesselViewModel {
 	private String name;
 	
 	/**
+	 * A default constructor.
+	 */
+	public VesselViewModel() {
+		
+	}
+	
+	/**
+	 * Creates an instance of VesselViewModel from the information from a VesselDTO.
+	 * @param vessel Vessel information from client.
+	 */
+	public VesselViewModel(VesselDTO vessel) {
+		this.name = vessel.getName();
+	}
+	
+	/**
 	 * Sets the name of the vessel.
 	 * @param name The new name for the vessel.
 	 */

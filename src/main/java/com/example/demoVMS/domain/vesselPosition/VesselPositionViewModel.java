@@ -15,6 +15,14 @@ public class VesselPositionViewModel {
 	 */
 	private PositionViewModel position;
 
+	/**
+	 * Creates an instance of VesselPositionViewModel from the information from a VesselPositionDTO.
+	 * @param vesselPosition VesselPosition information from client.
+	 */
+	public VesselPositionViewModel(VesselPositionDTO vesselPosition) {
+		this.vessel = new VesselViewModel(vesselPosition.getVessel());
+		this.position = new PositionViewModel(vesselPosition.getPosition());
+	}
 	
 	/**
 	 * Gets the vessel information.
@@ -46,5 +54,5 @@ public class VesselPositionViewModel {
 	 */
 	public void setPosition(PositionViewModel position) {
 		this.position = position;
-	}
+	}	
 }

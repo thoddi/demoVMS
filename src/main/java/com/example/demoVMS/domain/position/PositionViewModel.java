@@ -2,6 +2,8 @@ package com.example.demoVMS.domain.position;
 
 import java.util.Date;
 
+import com.example.demoVMS.services.UnitService;
+
 public class PositionViewModel implements Position {
 
 	/**
@@ -17,18 +19,29 @@ public class PositionViewModel implements Position {
 	/**
 	 * The position latitude in radians. 
 	 */
-	private Number latitude;
+	private double latitude;
 	
 	/**
 	 * The position longitude in radians.
 	 */
-	private Number longitude;
+	private double longitude;
 	
 	/**
 	 * The speed at that time in meters per second.
 	 */
-	private Number speed;
+	private double speed;
 
+	/**
+	 * Creates an instance of PositionViewModel with the information from a PositionDTO.
+	 * @param position Position information from client.
+	 */
+	public PositionViewModel(PositionDTO position) {
+		this.date  = position.getDate();
+		this.receivedDate = new Date();
+		this.latitude = UnitService.degreesToRadians(position.getLatitude());
+		this.longitude = UnitService.degreesToRadians(position.getLongitude());
+		this.speed = UnitService.knotsToMps(position.getSpeed());
+	}
 
 	/**
 	 * Gets the date of the position.
@@ -64,45 +77,49 @@ public class PositionViewModel implements Position {
 	
 	/**
 	 * Gets the latitude of the position.
-	 * @return The latitude.
+	 * @return The latitude in radians.
 	 */
-	public Number getLatitude() {
+	public double getLatitude() {
 		return latitude;
 	}
 
 	/**
 	 * Sets the latitude of the position.
-	 * @param latitude A new latitude.
+	 * @param latitude A new latitude in radians.
 	 */
-	public void setLatitude(Number latitude) {
+	public void setLatitude(double latitude) {
 		this.latitude = latitude;
 	}
 
 	/**
 	 * Gets the longitude of the position.
-	 * @return The longitude.
+	 * @return The longitude in radians.
 	 */
-	public Number getLongitude() {
+	public double getLongitude() {
 		return longitude;
 	}
 
 	/**
 	 * Sets the longitude of the position.
-	 * @param longitude A new longitude.
+	 * @param longitude A new longitude in radians.
 	 */
-	public void setLongitude(Number longitude) {
+	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
 
 	/**
 	 * Gets the speed at that time.
-	 * @return The speed.
+	 * @return The speed in meters per second..
 	 */
-	public Number getSpeed() {
+	public double getSpeed() {
 		return speed;
 	}
 
-	public void setSpeed(Number speed) {
+	/**
+	 * Sets the speed at that time.
+	 * @param speed A new speed in meters per second.
+	 */
+	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
 }
